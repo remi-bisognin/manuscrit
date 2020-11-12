@@ -1,0 +1,843 @@
+\begin{thebibliography}{100}
+\ProvideTextCommand{\guillemotleft}{OT1}{%
+  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\ll$}}
+\ProvideTextCommand{\guillemotright}{OT1}{%
+  \leavevmode\raise .27ex\hbox{$\scriptscriptstyle\gg$}}
+\newcommand{\enquote}[1]{\guillemotleft#1\guillemotright}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem{von1986quantized}
+K.~\textsc{Von~Klitzing}; \enquote{The quantized Hall effect};
+  \href{http://dx.doi.org/10.1103/RevModPhys.58.519}{Reviews of Modern Physics
+  \textbf{58}, p. 519 (1986)}.
+\bibAnnoteFile{von1986quantized}
+
+\bibitem{stock2019revision}
+M.~\textsc{Stock}, R.~\textsc{Davis}, E.~\textsc{de~Mirand{\'e}s} \& M.~J.
+  \textsc{Milton}; \enquote{The revision of the SI—the result of three
+  decades of progress in metrology}; Metrologia \textbf{56}, p. 022\,001
+  (2019).
+\bibAnnoteFile{stock2019revision}
+
+\bibitem{taylor1989new}
+B.~\textsc{Taylor} \& T.~\textsc{Witt}; \enquote{New international electrical
+  reference standards based on the Josephson and quantum Hall effects};
+  Metrologia \textbf{26}, p.~47 (1989).
+\bibAnnoteFile{taylor1989new}
+
+\bibitem{gabelli2006violation}
+J.~\textsc{Gabelli}, G.~\textsc{F{\`e}ve}, J.-M. \textsc{Berroir},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, B.~\textsc{Etienne},
+  Y.~\textsc{Jin} \& D.~\textsc{Glattli}; \enquote{Violation of Kirchhoff's
+  laws for a coherent RC circuit};
+  \href{http://dx.doi.org/10.1126/science.1126940}{Science \textbf{313}, p.
+  499--502 (2006)}.
+\bibAnnoteFile{gabelli2006violation}
+
+\bibitem{pothier1992single}
+H.~\textsc{Pothier}, P.~\textsc{Lafarge}, C.~\textsc{Urbina},
+  D.~\textsc{Esteve} \& M.~\textsc{Devoret}; \enquote{Single-electron pump
+  based on charging effects}; EPL (Europhysics Letters) \textbf{17}, p. 249
+  (1992).
+\bibAnnoteFile{pothier1992single}
+
+\bibitem{feve2007on-demand}
+G.~\textsc{F{\`e}ve}, A.~\textsc{Mah{\'e}}, J.-M. \textsc{Berroir},
+  T.~\textsc{Kontos}, B.~\textsc{Pla{\c c}ais}, D.~C. \textsc{Glattli},
+  A.~\textsc{Cavanna}, B.~\textsc{Etienne} \& Y.~\textsc{Jin}; \enquote{An
+  On-Demand Coherent Single-Electron Source};
+  \href{http://dx.doi.org/10.1126/science.1141243}{Science \textbf{316}, p.
+  1169--1172 (2007)}.
+\bibAnnoteFile{feve2007on-demand}
+
+\bibitem{hermelin2011electrons}
+S.~\textsc{Hermelin}, S.~\textsc{Takada}, M.~\textsc{Yamamoto},
+  S.~\textsc{Tarucha}, A.~D. \textsc{Wieck}, L.~\textsc{Saminadayar},
+  C.~\textsc{B{\"a}uerle} \& T.~\textsc{Meunier}; \enquote{Electrons surfing on
+  a sound wave as a platform for quantum optics with flying electrons};
+  \href{http://dx.doi.org/10.1038/nature10416}{Nature \textbf{477}, p. 435--438
+  (2011)}.
+\bibAnnoteFile{hermelin2011electrons}
+
+\bibitem{giblin2012towards}
+S.~\textsc{Giblin}, M.~\textsc{Kataoka}, J.~\textsc{Fletcher}, P.~\textsc{See},
+  T.~\textsc{Janssen}, J.~\textsc{Griffiths}, G.~\textsc{Jones},
+  I.~\textsc{Farrer} \& D.~\textsc{Ritchie}; \enquote{Towards a quantum
+  representation of the ampere using single electron pumps};
+  \href{http://dx.doi.org/10.1038/ncomms1935}{Nature communications \textbf{3},
+  p. 1--6 (2012)}.
+\bibAnnoteFile{giblin2012towards}
+
+\bibitem{dubois2013minimal}
+J.~\textsc{Dubois}, T.~\textsc{Jullien}, F.~\textsc{Portier},
+  P.~\textsc{Roche}, A.~\textsc{Cavanna}, Y.~\textsc{Jin},
+  W.~\textsc{Wegscheider}, P.~\textsc{Roulleau} \& D.~\textsc{Glattli};
+  \enquote{Minimal-excitation states for electron quantum optics using
+  levitons}; \href{http://dx.doi.org/10.1038/nature12713}{Nature \textbf{502},
+  p. 659 (2013)}.
+\bibAnnoteFile{dubois2013minimal}
+
+\bibitem{hashisaka2017waveform}
+M.~\textsc{Hashisaka}, N.~\textsc{Hiyama}, T.~\textsc{Akiho},
+  K.~\textsc{Muraki} \& T.~\textsc{Fujisawa}; \enquote{Waveform measurement of
+  charge-and spin-density wavepackets in a chiral Tomonaga--Luttinger liquid};
+  \href{http://dx.doi.org/10.1038/nphys4062}{Nature Physics \textbf{13}, p. 559
+  (2017)}.
+\bibAnnoteFile{hashisaka2017waveform}
+
+\bibitem{roussely2018unveiling}
+G.~\textsc{Roussely}, E.~\textsc{Arrighi}, G.~\textsc{Georgiou},
+  S.~\textsc{Takada}, M.~\textsc{Schalk}, M.~\textsc{Urdampilleta},
+  A.~\textsc{Ludwig}, A.~D. \textsc{Wieck}, P.~\textsc{Armagnat},
+  T.~\textsc{Kloss} \emph{et~al.}; \enquote{Unveiling the bosonic nature of an
+  ultrashort few-electron pulse};
+  \href{http://dx.doi.org/10.1038/s41467-018-05203-7}{Nature communications
+  \textbf{9}, p. 1--6 (2018)}.
+\bibAnnoteFile{roussely2018unveiling}
+
+\bibitem{le2010energy}
+H.~\textsc{Le~Sueur}, C.~\textsc{Altimiras}, U.~\textsc{Gennser},
+  A.~\textsc{Cavanna}, D.~\textsc{Mailly} \& F.~\textsc{Pierre};
+  \enquote{Energy relaxation in the integer quantum Hall regime};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.105.056803}{Physical Review
+  Letters \textbf{105}, p. 056\,803 (2010)}.
+\bibAnnoteFile{le2010energy}
+
+\bibitem{rodriguez2020relaxation}
+R.~\textsc{Rodriguez}, F.~\textsc{Parmentier}, D.~\textsc{Ferraro},
+  P.~\textsc{Roulleau}, U.~\textsc{Gennser}, A.~\textsc{Cavanna},
+  M.~\textsc{Sassetti}, F.~\textsc{Portier}, D.~\textsc{Mailly} \&
+  P.~\textsc{Roche}; \enquote{Relaxation and revival of quasiparticles injected
+  in an interacting quantum Hall liquid};
+  \href{http://dx.doi.org/10.1038/s41467-020-16331-4}{Nature communications
+  \textbf{11}, p. 1--8 (2020)}.
+\bibAnnoteFile{rodriguez2020relaxation}
+
+\bibitem{jullien2014quantum}
+T.~\textsc{Jullien}, P.~\textsc{Roulleau}, B.~\textsc{Roche},
+  A.~\textsc{Cavanna}, Y.~\textsc{Jin} \& D.~\textsc{Glattli}; \enquote{Quantum
+  tomography of an electron};
+  \href{http://dx.doi.org/10.1038/nature13821}{Nature \textbf{514}, p. 603
+  (2014)}.
+\bibAnnoteFile{jullien2014quantum}
+
+\bibitem{fletcher2019quantum}
+J.~\textsc{Fletcher}, N.~\textsc{Johnson}, E.~\textsc{Locane}, P.~\textsc{See},
+  J.~\textsc{Griffiths}, I.~\textsc{Farrer}, D.~\textsc{Ritchie},
+  P.~\textsc{Brouwer}, V.~\textsc{Kashcheyevs} \& M.~\textsc{Kataoka};
+  \enquote{Quantum Tomography of Solitary Electrons}; arXiv preprint
+  arXiv:1901.10985  (2019)\url{https://arxiv.org/abs/1901.10985}.
+\bibAnnoteFile{fletcher2019quantum}
+
+\bibitem{bisognin2019quantum}
+R.~\textsc{Bisognin}, A.~\textsc{Marguerite}, B.~\textsc{Roussel},
+  M.~\textsc{Kumar}, C.~\textsc{Cabart}, C.~\textsc{Chapdelaine},
+  A.~\textsc{Mohammad-Djafari}, J.-M. \textsc{Berroir}, E.~\textsc{Bocquillon},
+  B.~\textsc{Pla{\c{c}}ais} \emph{et~al.}; \enquote{Quantum tomography of
+  electrical currents};
+  \href{http://dx.doi.org/10.1038/s41467-019-11369-5}{Nature Communications
+  \textbf{10}, p. 3379 (2019)}.
+\bibAnnoteFile{bisognin2019quantum}
+
+\bibitem{marguerite2016decoherence}
+A.~\textsc{Marguerite}, C.~\textsc{Cabart}, C.~\textsc{Wahl},
+  B.~\textsc{Roussel}, V.~\textsc{Freulon}, D.~\textsc{Ferraro},
+  C.~\textsc{Grenier}, J.-M. \textsc{Berroir},
+  B.~\textsc{Pla\ifmmode~\mbox{\c{c}}\else \c{c}\fi{}ais},
+  T.~\textsc{Jonckheere}, J.~\textsc{Rech}, T.~\textsc{Martin},
+  P.~\textsc{Degiovanni}, A.~\textsc{Cavanna}, Y.~\textsc{Jin} \&
+  G.~\textsc{F\`eve}; \enquote{Decoherence and relaxation of a single electron
+  in a one-dimensional conductor};
+  \href{http://dx.doi.org/10.1103/PhysRevB.94.115311}{Phys. Rev. B \textbf{94},
+  p. 115\,311 (2016)}.
+\bibAnnoteFile{marguerite2016decoherence}
+
+\bibitem{freulon2015hong}
+V.~\textsc{Freulon}, A.~\textsc{Marguerite}, J.-M. \textsc{Berroir},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, Y.~\textsc{Jin} \&
+  G.~\textsc{F{\`e}ve}; \enquote{Hong-Ou-Mandel experiment for temporal
+  investigation of single-electron fractionalization};
+  \href{http://dx.doi.org/10.1038/ncomms7854}{Nature communications \textbf{6},
+  p. 6854 (2015)}.
+\bibAnnoteFile{freulon2015hong}
+
+\bibitem{huynh2012quantum}
+P.~\textsc{Huynh}, F.~\textsc{Portier}, H.~\textsc{Le~Sueur},
+  G.~\textsc{Faini}, U.~\textsc{Gennser}, D.~\textsc{Mailly},
+  F.~\textsc{Pierre}, W.~\textsc{Wegscheider} \& P.~\textsc{Roche};
+  \enquote{Quantum coherence engineering in the integer quantum Hall regime};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.108.256802}{Physical Review
+  Letters \textbf{108}, p. 256\,802 (2012)}.
+\bibAnnoteFile{huynh2012quantum}
+
+\bibitem{cabart2018taming}
+C.~\textsc{Cabart}, B.~\textsc{Roussel}, G.~\textsc{F{\`e}ve} \&
+  P.~\textsc{Degiovanni}; \enquote{Taming electronic decoherence in
+  one-dimensional chiral ballistic quantum conductors};
+  \href{http://dx.doi.org/10.1103/PhysRevB.98.155302}{Physical Review B
+  \textbf{98}, p. 155\,302 (2018)}.
+\bibAnnoteFile{cabart2018taming}
+
+\bibitem{duprez2019macroscopic}
+H.~\textsc{Duprez}, E.~\textsc{Sivre}, A.~\textsc{Anthore},
+  A.~\textsc{Aassime}, A.~\textsc{Cavanna}, A.~\textsc{Ouerghi},
+  U.~\textsc{Gennser} \& F.~\textsc{Pierre}; \enquote{Macroscopic electron
+  quantum coherence in a solid-state circuit};
+  \href{http://dx.doi.org/10.1103/PhysRevX.9.021030}{Physical Review X
+  \textbf{9}, p. 021\,030 (2019)}.
+\bibAnnoteFile{duprez2019macroscopic}
+
+\bibitem{ferraro2014real}
+D.~\textsc{Ferraro}, B.~\textsc{Roussel}, C.~\textsc{Cabart},
+  E.~\textsc{Thibierge}, G.~\textsc{F{\`e}ve}, C.~\textsc{Grenier} \&
+  P.~\textsc{Degiovanni}; \enquote{Real-time decoherence of Landau and Levitov
+  quasiparticles in quantum Hall edge channels};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.113.166403}{Physical review
+  letters \textbf{113}, p. 166\,403 (2014)}.
+\bibAnnoteFile{ferraro2014real}
+
+\bibitem{bocquillon2013separation}
+E.~\textsc{Bocquillon}, V.~\textsc{Freulon}, P.~\textsc{Degiovanni},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, Y.~\textsc{Jin},
+  G.~\textsc{F{\`e}ve} \emph{et~al.}; \enquote{Separation of neutral and charge
+  modes in one-dimensional chiral edge channels};
+  \href{http://dx.doi.org/10.1038/ncomms2788}{Nature communications \textbf{4},
+  p. 1839 (2013)}.
+\bibAnnoteFile{bocquillon2013separation}
+
+\bibitem{schottky1918regarding}
+W.~\textsc{Schottky}; \enquote{Regarding spontaneous current fluctuation in
+  different electricity conductors}; Ann. Phys \textbf{57}, p. 541--567 (1918).
+\bibAnnoteFile{schottky1918regarding}
+
+\bibitem{schoelkopf1997frequency}
+R.~\textsc{Schoelkopf}, P.~\textsc{Burke}, A.~\textsc{Kozhevnikov},
+  D.~\textsc{Prober} \& M.~\textsc{Rooks}; \enquote{Frequency dependence of
+  shot noise in a diffusive mesoscopic conductor};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.78.3370}{Physical review letters
+  \textbf{78}, p. 3370 (1997)}.
+\bibAnnoteFile{schoelkopf1997frequency}
+
+\bibitem{zakka2007experimental}
+E.~\textsc{Zakka-Bajjani}, J.~\textsc{Segala}, F.~\textsc{Portier},
+  P.~\textsc{Roche}, D.~\textsc{Glattli}, A.~\textsc{Cavanna} \&
+  Y.~\textsc{Jin}; \enquote{Experimental test of the high-frequency quantum
+  shot noise theory in a quantum point contact};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.99.236803}{Physical review
+  letters \textbf{99}, p. 236\,803 (2007)}.
+\bibAnnoteFile{zakka2007experimental}
+
+\bibitem{gabelli2009high}
+J.~\textsc{Gabelli} \& B.~\textsc{Reulet}; \enquote{High frequency dynamics and
+  the third cumulant of quantum noise};
+  \href{http://dx.doi.org/10.1088/1742-5468/2009/01/P01049}{Journal of
+  Statistical Mechanics: Theory and Experiment \textbf{2009}, p. P01\,049
+  (2009)}.
+\bibAnnoteFile{gabelli2009high}
+
+\bibitem{saminadayar1997observation}
+L.~\textsc{Saminadayar}, D.~\textsc{Glattli}, Y.~\textsc{Jin} \& B.~c.-m.
+  \textsc{Etienne}; \enquote{Observation of the e/3 fractionally charged
+  Laughlin quasiparticle};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.79.2526}{Physical Review Letters
+  \textbf{79}, p. 2526 (1997)}.
+\bibAnnoteFile{saminadayar1997observation}
+
+\bibitem{de1998direct}
+R.~\textsc{De-Picciotto}, M.~\textsc{Reznikov}, M.~\textsc{Heiblum},
+  V.~\textsc{Umansky}, G.~\textsc{Bunin} \& D.~\textsc{Mahalu}; \enquote{Direct
+  observation of a fractional charge};
+  \href{http://dx.doi.org/10.1038/38241}{Nature \textbf{389}, p. 162--164
+  (1997)}.
+\bibAnnoteFile{de1998direct}
+
+\bibitem{reznikov1999observation}
+M.~\textsc{Reznikov}, R.~\textsc{De~Picciotto}, T.~\textsc{Griffiths},
+  M.~\textsc{Heiblum} \& V.~\textsc{Umansky}; \enquote{Observation of
+  quasiparticles with one-fifth of an electron's charge};
+  \href{http://dx.doi.org/10.1038/20384}{Nature \textbf{399}, p. 238 (1999)}.
+\bibAnnoteFile{reznikov1999observation}
+
+\bibitem{bid2009shot}
+A.~\textsc{Bid}, N.~\textsc{Ofek}, M.~\textsc{Heiblum}, V.~\textsc{Umansky} \&
+  D.~\textsc{Mahalu}; \enquote{Shot noise and charge at the 2/3 composite
+  fractional quantum Hall state};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.103.236802}{Physical review
+  letters \textbf{103}, p. 236\,802 (2009)}.
+\bibAnnoteFile{bid2009shot}
+
+\bibitem{hashisaka2015shot}
+M.~\textsc{Hashisaka}, T.~\textsc{Ota}, K.~\textsc{Muraki} \&
+  T.~\textsc{Fujisawa}; \enquote{Shot-noise evidence of fractional
+  quasiparticle creation in a local fractional quantum Hall state};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.114.056802}{Physical review
+  letters \textbf{114}, p. 056\,802 (2015)}.
+\bibAnnoteFile{hashisaka2015shot}
+
+\bibitem{kapfer2019josephson}
+M.~\textsc{Kapfer}, P.~\textsc{Roulleau}, M.~\textsc{Santin},
+  I.~\textsc{Farrer}, D.~\textsc{Ritchie} \& D.~\textsc{Glattli}; \enquote{A
+  Josephson relation for fractionally charged anyons};
+  \href{http://dx.doi.org/10.1126/science.aau3539}{Science \textbf{363}, p.
+  846--849 (2019)}.
+\bibAnnoteFile{kapfer2019josephson}
+
+\bibitem{kapfer2018dynamic}
+M.~\textsc{Kapfer}; \emph{{Dynamic of excitations of the Fractional quantum
+  Hall effect : fractional charge and fractional Josephson frequency}}; Theses;
+  {Universit{\'e} Paris-Saclay} (2018).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01978045}.
+\bibAnnoteFile{kapfer2018dynamic}
+
+\bibitem{arovas1984fractional}
+D.~\textsc{Arovas}, J.~R. \textsc{Schrieffer} \& F.~\textsc{Wilczek};
+  \enquote{Fractional statistics and the quantum Hall effect};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.53.722}{Physical review letters
+  \textbf{53}, p. 722 (1984)}.
+\bibAnnoteFile{arovas1984fractional}
+
+\bibitem{halperin1984statistics}
+B.~I. \textsc{Halperin}; \enquote{Statistics of quasiparticles and the
+  hierarchy of fractional quantized Hall states};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.52.1583}{Physical Review Letters
+  \textbf{52}, p. 1583 (1984)}.
+\bibAnnoteFile{halperin1984statistics}
+
+\bibitem{bartolomei2020fractional}
+H.~\textsc{Bartolomei}, M.~\textsc{Kumar}, R.~\textsc{Bisognin},
+  A.~\textsc{Marguerite}, J.-M. \textsc{Berroir}, E.~\textsc{Bocquillon},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, Q.~\textsc{Dong},
+  U.~\textsc{Gennser} \emph{et~al.}; \enquote{Fractional statistics in anyon
+  collisions}; \href{http://dx.doi.org/10.1126/science.aaz5601}{Science
+  \textbf{368}, p. 173--177 (2020)}.
+\bibAnnoteFile{bartolomei2020fractional}
+
+\bibitem{nakamura2020direct}
+J.~\textsc{Nakamura}, S.~\textsc{Liang}, G.~C. \textsc{Gardner} \& M.~J.
+  \textsc{Manfra}; \enquote{Direct observation of anyonic braiding statistics
+  at the $ν$=1/3 fractional quantum Hall state};  (2020); \eprint{2006.14115}.
+\bibAnnoteFile{nakamura2020direct}
+
+\bibitem{haldane1991fractional}
+F.~D.~M. \textsc{Haldane}; \enquote{‘‘Fractional statistics’’in
+  arbitrary dimensions: A generalization of the Pauli principle};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.67.937}{Physical review letters
+  \textbf{67}, p. 937 (1991)}.
+\bibAnnoteFile{haldane1991fractional}
+
+\bibitem{parmentier2011high}
+F.~D. \textsc{Parmentier}, A.~\textsc{Mah{\'e}}, A.~\textsc{Denis}, J.-M.
+  \textsc{Berroir}, D.~C. \textsc{Glattli}, B.~\textsc{Pla{\c{c}}ais} \&
+  G.~\textsc{F{\`e}ve}; \enquote{A high sensitivity ultralow temperature RF
+  conductance and noise measurement setup};
+  \href{http://dx.doi.org/10.1063/1.3518945}{Review of Scientific Instruments
+  \textbf{82}, p. 013\,904 (2011)}.
+\bibAnnoteFile{parmentier2011high}
+
+\bibitem{parmentier2010short}
+F.~\textsc{Parmentier}; \emph{Short-time Hanbury-Brown and Twiss correlation of
+  a single-electron beam in ballistic conductors}; Th\`ese de doctorat;
+  Universit{\'e} Pierre et Marie Curie-Paris VI (2010).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-00556458}.
+\bibAnnoteFile{parmentier2010short}
+
+\bibitem{engelbrecht1965wide}
+R.~\textsc{Engelbrecht} \& K.~\textsc{Kurokawa}; \enquote{A wide-band low noise
+  L-band balanced transistor amplifier};
+  \href{http://dx.doi.org/10.1109/PROC.1965.3681}{Proceedings of the IEEE
+  \textbf{53}, p. 237--247 (1965)}.
+\bibAnnoteFile{engelbrecht1965wide}
+
+\bibitem{bisognin2019microwave}
+R.~\textsc{Bisognin}, H.~\textsc{Bartolomei}, M.~\textsc{Kumar},
+  I.~\textsc{Safi}, J.-M. \textsc{Berroir}, E.~\textsc{Bocquillon},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, U.~\textsc{Gennser},
+  Y.~\textsc{Jin} \emph{et~al.}; \enquote{Microwave photons emitted by
+  fractionally charged quasiparticles};
+  \href{http://dx.doi.org/10.1038/s41467-019-09758-x}{Nature communications
+  \textbf{10}, p. 1708 (2019)}.
+\bibAnnoteFile{bisognin2019microwave}
+
+\bibitem{blanter2000shot}
+Y.~M. \textsc{Blanter} \& M.~\textsc{B{\"u}ttiker}; \enquote{Shot noise in
+  mesoscopic conductors};
+  \href{http://dx.doi.org/10.1016/S0370-1573(99)00123-4}{Physics reports
+  \textbf{336}, p. 1--166 (2000)}.
+\bibAnnoteFile{blanter2000shot}
+
+\bibitem{martin2005course}
+T.~\textsc{Martin}; \enquote{Course 5 Noise in mesoscopic physics}; dans
+  \enquote{Les Houches}, , tome~81p. 283--359 (Elsevier) (2005).
+\bibAnnoteFile{martin2005course}
+
+\bibitem{laughlin1983anomalous}
+R.~B. \textsc{Laughlin}; \enquote{Anomalous quantum Hall effect: an
+  incompressible quantum fluid with fractionally charged excitations};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.50.1395}{Physical Review Letters
+  \textbf{50}, p. 1395 (1983)}.
+\bibAnnoteFile{laughlin1983anomalous}
+
+\bibitem{crepieux2004photoassisted}
+A.~\textsc{Cr{\'e}pieux}, P.~\textsc{Devillard} \& T.~\textsc{Martin};
+  \enquote{Photoassisted current and shot noise in the fractional quantum Hall
+  effect}; \href{http://dx.doi.org/10.1103/PhysRevB.69.205302}{Physical Review
+  B \textbf{69}, p. 205\,302 (2004)}.
+\bibAnnoteFile{crepieux2004photoassisted}
+
+\bibitem{ferraro2014multiple}
+D.~\textsc{Ferraro}, M.~\textsc{Carrega}, A.~\textsc{Braggio} \&
+  M.~\textsc{Sassetti}; \enquote{Multiple quasiparticle Hall spectroscopy
+  investigated with a resonant detector};
+  \href{http://dx.doi.org/10.1088/1367-2630/16/4/043018}{New Journal of Physics
+  \textbf{16}, p. 043\,018 (2014)}.
+\bibAnnoteFile{ferraro2014multiple}
+
+\bibitem{carrega2014finite}
+M.~\textsc{Carrega}, D.~\textsc{Ferraro}, A.~\textsc{Braggio} \&
+  M.~\textsc{Sassetti}; \enquote{Finite frequency noise for Laughlin state
+  investigated by a resonant circuit}; dans \enquote{Journal of Physics:
+  Conference Series}, , tome 568p. 052005 (IOP Publishing) (2014).
+\bibAnnoteFile{carrega2014finite}
+
+\bibitem{carrega2012spectral}
+M.~\textsc{Carrega}, D.~\textsc{Ferraro}, A.~\textsc{Braggio},
+  N.~\textsc{Magnoli} \& M.~\textsc{Sassetti}; \enquote{Spectral noise for edge
+  states at the filling factor $\nu$= 5/2};
+  \href{http://dx.doi.org/10.1088/1367-2630/14/2/023017}{New Journal of Physics
+  \textbf{14}, p. 023\,017 (2012)}.
+\bibAnnoteFile{carrega2012spectral}
+
+\bibitem{roussel2016perturbative}
+B.~\textsc{Roussel}, P.~\textsc{Degiovanni} \& I.~\textsc{Safi};
+  \enquote{Perturbative fluctuation dissipation relation for nonequilibrium
+  finite-frequency noise in quantum circuits};
+  \href{http://dx.doi.org/10.1103/PhysRevB.93.045102}{Physical Review B
+  \textbf{93}, p. 045\,102 (2016)}.
+\bibAnnoteFile{roussel2016perturbative}
+
+\bibitem{ji2003electronic}
+Y.~\textsc{Ji}, Y.~\textsc{Chung}, D.~\textsc{Sprinzak}, M.~\textsc{Heiblum},
+  D.~\textsc{Mahalu} \& H.~\textsc{Shtrikman}; \enquote{An electronic
+  mach--zehnder interferometer};
+  \href{http://dx.doi.org/10.1038/nature01503}{Nature \textbf{422}, p. 415
+  (2003)}.
+\bibAnnoteFile{ji2003electronic}
+
+\bibitem{roulleau2007finite}
+P.~\textsc{Roulleau}, F.~\textsc{Portier}, D.~\textsc{Glattli},
+  P.~\textsc{Roche}, A.~\textsc{Cavanna}, G.~\textsc{Faini},
+  U.~\textsc{Gennser} \& D.~\textsc{Mailly}; \enquote{Finite bias visibility of
+  the electronic Mach-Zehnder interferometer};
+  \href{http://dx.doi.org/10.1103/PhysRevB.76.161309}{Physical Review B
+  \textbf{76}, p. 161\,309 (2007)}.
+\bibAnnoteFile{roulleau2007finite}
+
+\bibitem{litvin2007decoherence}
+L.~\textsc{Litvin}, H.-P. \textsc{Tranitz}, W.~\textsc{Wegscheider} \&
+  C.~\textsc{Strunk}; \enquote{Decoherence and single electron charging in an
+  electronic Mach-Zehnder interferometer};
+  \href{http://dx.doi.org/10.1103/PhysRevB.75.033315}{Physical Review B
+  \textbf{75}, p. 033\,315 (2007)}.
+\bibAnnoteFile{litvin2007decoherence}
+
+\bibitem{bocquillon2012electron}
+E.~\textsc{Bocquillon}, F.~\textsc{Parmentier}, C.~\textsc{Grenier}, J.-M.
+  \textsc{Berroir}, P.~\textsc{Degiovanni}, D.~\textsc{Glattli},
+  B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna}, Y.~\textsc{Jin} \&
+  G.~\textsc{F{\`e}ve}; \enquote{Electron quantum optics: partitioning
+  electrons one by one};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.108.196803}{Physical Review
+  Letters \textbf{108}, p. 196\,803 (2012)}.
+\bibAnnoteFile{bocquillon2012electron}
+
+\bibitem{henny1999fermionic}
+M.~\textsc{Henny}, S.~\textsc{Oberholzer}, C.~\textsc{Strunk},
+  T.~\textsc{Heinzel}, K.~\textsc{Ensslin}, M.~\textsc{Holland} \&
+  C.~\textsc{Sch{\"o}nenberger}; \enquote{The fermionic hanbury brown and twiss
+  experiment}; \href{http://dx.doi.org/10.1126/science.284.5412.296}{Science
+  \textbf{284}, p. 296--298 (1999)}.
+\bibAnnoteFile{henny1999fermionic}
+
+\bibitem{oliver1999hanbury}
+W.~D. \textsc{Oliver}, J.~\textsc{Kim}, R.~C. \textsc{Liu} \&
+  Y.~\textsc{Yamamoto}; \enquote{Hanbury Brown and Twiss-type experiment with
+  electrons}; \href{http://dx.doi.org/10.1126/science.284.5412.299}{Science
+  \textbf{284}, p. 299--301 (1999)}.
+\bibAnnoteFile{oliver1999hanbury}
+
+\bibitem{bocquillon2013}
+E.~\textsc{Bocquillon}, V.~\textsc{Freulon}, J.-M. \textsc{Berroir},
+  P.~\textsc{Degiovanni}, B.~\textsc{Pla{\c c}ais}, A.~\textsc{Cavanna},
+  Y.~\textsc{Jin} \& G.~\textsc{F{\`e}ve}; \enquote{Coherence and
+  Indistinguishability of Single Electrons Emitted by Independent Sources};
+  \href{http://dx.doi.org/10.1126/science.1232572}{Science \textbf{339}, p.
+  1054--1057 (2013)}.
+\bibAnnoteFile{bocquillon2013}
+
+\bibitem{inoue2014charge}
+H.~\textsc{Inoue}, A.~\textsc{Grivnin}, N.~\textsc{Ofek}, I.~\textsc{Neder},
+  M.~\textsc{Heiblum}, V.~\textsc{Umansky} \& D.~\textsc{Mahalu};
+  \enquote{Charge fractionalization in the integer quantum Hall effect};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.112.166801}{Physical review
+  letters \textbf{112}, p. 166\,801 (2014)}.
+\bibAnnoteFile{inoue2014charge}
+
+\bibitem{rodriguez2019strong}
+R.~\textsc{Rodriguez}, F.~\textsc{Parmentier}, P.~\textsc{Roulleau},
+  U.~\textsc{Gennser}, A.~\textsc{Cavanna}, F.~\textsc{Portier},
+  D.~\textsc{Mailly} \& P.~\textsc{Roche}; \enquote{Strong energy relaxation of
+  propagating quasiparticles in the quantum Hall regime}; arXiv preprint
+  arXiv:1903.05919  (2019)\url{https://arxiv.org/abs/1903.05919}.
+\bibAnnoteFile{rodriguez2019strong}
+
+\bibitem{krahenmann2019auger}
+T.~\textsc{Kr{\"a}henmann}, S.~\textsc{Fischer}, M.~\textsc{R{\"o}{\"o}sli},
+  T.~\textsc{Ihn}, C.~\textsc{Reichl}, W.~\textsc{Wegscheider},
+  K.~\textsc{Ensslin}, Y.~\textsc{Gefen} \& Y.~\textsc{Meir};
+  \enquote{Auger-spectroscopy in quantum Hall edge channels: a possible
+  resolution to the missing energy problem}; arXiv preprint arXiv:1902.10065
+  (2019)\url{https://arxiv.org/abs/1902.10065}.
+\bibAnnoteFile{krahenmann2019auger}
+
+\bibitem{marguerite2017extracting}
+A.~\textsc{Marguerite}, B.~\textsc{Roussel}, R.~\textsc{Bisognin},
+  C.~\textsc{Cabart}, M.~\textsc{Kumar}, J.-M. \textsc{Berroir},
+  E.~\textsc{Bocquillon}, B.~\textsc{Pla{\c{c}}ais}, A.~\textsc{Cavanna},
+  U.~\textsc{Gennser} \emph{et~al.}; \enquote{Extracting single electron
+  wavefunctions from a quantum electrical current}; arXiv preprint
+  arXiv:1710.11181  (2017)\url{https://arxiv.org/abs/1710.11181}.
+\bibAnnoteFile{marguerite2017extracting}
+
+\bibitem{santin2017quantum}
+M.~\textsc{Santin}; \emph{Quantum dynamics of ballistic coherent conductors:
+  quantum switch and photo-assisted transport}; Th\`ese de doctorat;
+  Universit{\'e} Paris-Saclay (2017).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01587811}.
+\bibAnnoteFile{santin2017quantum}
+
+\bibitem{freise2019full}
+L.~\textsc{Freise}, T.~\textsc{Gerster}, D.~\textsc{Reifert},
+  T.~\textsc{Weimann}, K.~\textsc{Pierz}, F.~\textsc{Hohls} \&
+  N.~\textsc{Ubbelohde}; \enquote{Full counting statistics of trapped ballistic
+  electrons}; arXiv preprint arXiv:1902.11253
+  (2019)\url{https://arxiv.org/abs/1902.11253}.
+\bibAnnoteFile{freise2019full}
+
+\bibitem{levitov1996electro}
+L.~S. \textsc{Levitov}, H.~\textsc{Lee} \& G.~B. \textsc{Lesovik};
+  \enquote{Electron counting statistics and coherent states of electric
+  current}; \href{http://dx.doi.org/10.1063/1.531672}{Journal of Mathematical
+  Physics \textbf{37}, p. 4845--4866 (1996)}.
+\bibAnnoteFile{levitov1996electro}
+
+\bibitem{smithey1993measurement}
+D.~T. \textsc{Smithey}, M.~\textsc{Beck}, M.~G. \textsc{Raymer} \&
+  A.~\textsc{Faridani}; \enquote{Measurement of the Wigner distribution and the
+  density matrix of a light mode using optical homodyne tomography: Application
+  to squeezed states and the vacuum};
+  \href{http://dx.doi.org/10.1103/PhysRevLett.70.1244}{Phys. Rev. Lett.
+  \textbf{70}, p. 1244--1247 (1993)}.
+\bibAnnoteFile{smithey1993measurement}
+
+\bibitem{lvovsky2009continuous}
+A.~I. \textsc{Lvovsky} \& M.~G. \textsc{Raymer}; \enquote{Continuous-variable
+  optical quantum-state tomography};
+  \href{http://dx.doi.org/10.1103/RevModPhys.81.299}{Rev. Mod. Phys.
+  \textbf{81}, p. 299--332 (2009)}.
+\bibAnnoteFile{lvovsky2009continuous}
+
+\bibitem{haroche2006exploring}
+S.~\textsc{Haroche} \& J.-M. \textsc{Raimond}; \emph{Exploring the quantum:
+  atoms, cavities, and photons} (Oxford university press) (2006).
+\bibAnnoteFile{haroche2006exploring}
+
+\bibitem{ferraro2013wigner}
+D.~\textsc{Ferraro}, A.~\textsc{Feller}, A.~\textsc{Ghibaudo},
+  E.~\textsc{Thibierge}, E.~\textsc{Bocquillon}, G.~\textsc{F{\`e}ve},
+  C.~\textsc{Grenier} \& P.~\textsc{Degiovanni}; \enquote{Wigner function
+  approach to single electron coherence in quantum Hall edge channels};
+  \href{http://dx.doi.org/10.1103/PhysRevB.88.205303}{Physical Review B
+  \textbf{88}, p. 205\,303 (2013)}.
+\bibAnnoteFile{ferraro2013wigner}
+
+\bibitem{grenier2011single}
+C.~\textsc{Grenier}, R.~\textsc{Herv{\'e}}, E.~\textsc{Bocquillon}, F.~D.
+  \textsc{Parmentier}, B.~\textsc{Pla{\c{c}}ais}, J.-M. \textsc{Berroir},
+  G.~\textsc{F{\`e}ve} \& P.~\textsc{Degiovanni}; \enquote{Single-electron
+  quantum tomography in quantum Hall edge channels};
+  \href{http://dx.doi.org/10.1088/1367-2630/13/9/093007}{New Journal of Physics
+  \textbf{13}, p. 093\,007 (2011)}.
+\bibAnnoteFile{grenier2011single}
+
+\bibitem{marguerite2017two}
+A.~\textsc{Marguerite}; \emph{Two-particle interferometry for quantum signal
+  processing}; Th\`ese de doctorat; Universit{\'e} Pierre et Marie Curie-Paris
+  VI (2017).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01566243}.
+\bibAnnoteFile{marguerite2017two}
+
+\bibitem{wigner1997on}
+E.~P. \textsc{Wigner}; \emph{On the Quantum Correction for Thermodynamic
+  Equilibrium}; p. 110--120 (Springer Berlin Heidelberg, Berlin, Heidelberg)
+  (1997).
+\bibAnnoteFile{wigner1997on}
+
+\bibitem{ville1948theorie}
+J.~\textsc{Ville}; \enquote{Theorie et application dela notion de signal
+  analytique}; C{\^a}bles et transmissions \textbf{2}, p. 61--74 (1948).
+\bibAnnoteFile{ville1948theorie}
+
+\bibitem{flandrin1998time}
+P.~\textsc{Flandrin}; \emph{Time-frequency/time-scale analysis}; tome~10
+  (Academic press) (1998).
+\bibAnnoteFile{flandrin1998time}
+
+\bibitem{mallat1999wavelet}
+S.~\textsc{Mallat}; \emph{A wavelet tour of signal processing} (Elsevier)
+  (1999).
+\bibAnnoteFile{mallat1999wavelet}
+
+\bibitem{cahill1999density}
+K.~E. \textsc{Cahill} \& R.~J. \textsc{Glauber}; \enquote{Density operators for
+  fermions}; \href{http://dx.doi.org/10.1103/PhysRevA.59.1538}{Physical Review
+  A \textbf{59}, p. 1538 (1999)}.
+\bibAnnoteFile{cahill1999density}
+
+\bibitem{thibierge2015coherence}
+E.~\textsc{Thibierge}; \emph{Coh{\'e}rence {\`a} un et deux {\'e}lectrons en
+  optique quantique {\'e}lectronique}; Th\`ese de doctorat; Ecole normale
+  sup{\'e}rieure de lyon-ENS LYON (2015).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01171749}.
+\bibAnnoteFile{thibierge2015coherence}
+
+\bibitem{cabart2018measurement}
+C.~\textsc{Cabart}; \emph{Measurement and control of electronic coherences};
+  Th\`ese de doctorat; Universit{\'e} de Lyon (2018).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01907938}.
+\bibAnnoteFile{cabart2018measurement}
+
+\bibitem{hofer2017on}
+P.~P. \textsc{Hofer}, D.~\textsc{Dasenbrook} \& C.~\textsc{Flindt};
+  \enquote{On-demand entanglement generation using dynamic single-electron
+  sources}; \href{http://dx.doi.org/10.1002/pssb.201600582}{physica status
+  solidi (b) \textbf{254}, p. 1600\,582 (2017)}.
+\bibAnnoteFile{hofer2017on}
+
+\bibitem{chirolli2011time}
+L.~\textsc{Chirolli}, V.~\textsc{Giovannetti}, R.~\textsc{Fazio} \&
+  V.~\textsc{Scarani}; \enquote{Time-bin entanglement of quasiparticles in
+  semiconductor devices};
+  \href{http://dx.doi.org/10.1103/PhysRevB.84.195307}{Physical Review B
+  \textbf{84}, p. 195\,307 (2011)}.
+\bibAnnoteFile{chirolli2011time}
+
+\bibitem{thibierge2016two}
+E.~\textsc{Thibierge}, D.~\textsc{Ferraro}, B.~\textsc{Roussel},
+  C.~\textsc{Cabart}, A.~\textsc{Marguerite}, G.~\textsc{F\`eve} \&
+  P.~\textsc{Degiovanni}; \enquote{Two-electron coherence and its measurement
+  in electron quantum optics};
+  \href{http://dx.doi.org/10.1103/PhysRevB.93.081302}{Phys. Rev. B \textbf{93},
+  p. 081\,302 (2016)}.
+\bibAnnoteFile{thibierge2016two}
+
+\bibitem{roussel2017autopsy}
+B.~\textsc{Roussel}; \emph{{Autopsy of a quantum electrical current}}; Theses;
+  {Universit{\'e} de Lyon} (2017).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-01730943}.
+\bibAnnoteFile{roussel2017autopsy}
+
+\bibitem{grenier2011electron}
+C.~\textsc{Grenier}, R.~\textsc{Herv{\'e}}, G.~\textsc{F{\`e}ve} \&
+  P.~\textsc{Degiovanni}; \enquote{Electron quantum optics in quantum Hall edge
+  channels}; \href{http://dx.doi.org/10.1142/S0217984911026772}{Modern Physics
+  Letters B \textbf{25}, p. 1053--1073 (2011)}.
+\bibAnnoteFile{grenier2011electron}
+
+\bibitem{haack2013glauber}
+G.~\textsc{Haack}, M.~\textsc{Moskalets} \& M.~\textsc{B\"uttiker};
+  \enquote{Glauber coherence of single-electron sources};
+  \href{http://dx.doi.org/10.1103/PhysRevB.87.201302}{Phys. Rev. B \textbf{87},
+  p. 201\,302 (2013)}.
+\bibAnnoteFile{haack2013glauber}
+
+\bibitem{marzari2012maximally}
+N.~\textsc{Marzari}, A.~A. \textsc{Mostofi}, J.~R. \textsc{Yates},
+  I.~\textsc{Souza} \& D.~\textsc{Vanderbilt}; \enquote{Maximally localized
+  Wannier functions: Theory and applications};
+  \href{http://dx.doi.org/10.1103/RevModPhys.84.1419}{Reviews of Modern Physics
+  \textbf{84}, p. 1419 (2012)}.
+\bibAnnoteFile{marzari2012maximally}
+
+\bibitem{misiorny2018shaping}
+M.~\textsc{Misiorny}, G.~\textsc{F{\`e}ve} \& J.~\textsc{Splettstoesser};
+  \enquote{Shaping charge excitations in chiral edge states with a
+  time-dependent gate voltage};
+  \href{http://dx.doi.org/10.1103/PhysRevB.97.075426}{Physical Review B
+  \textbf{97}, p. 075\,426 (2018)}.
+\bibAnnoteFile{misiorny2018shaping}
+
+\bibitem{dong2014ultra}
+Q.~\textsc{Dong}, Y.~\textsc{Liang}, D.~\textsc{Ferry}, A.~\textsc{Cavanna},
+  U.~\textsc{Gennser}, L.~\textsc{Couraud} \& Y.~\textsc{Jin};
+  \enquote{Ultra-low noise high electron mobility transistors for
+  high-impedance and low-frequency deep cryogenic readout electronics};
+  \href{http://dx.doi.org/10.1063/1.4887368}{Applied Physics Letters
+  \textbf{105}, p. 013\,504 (2014)}.
+\bibAnnoteFile{dong2014ultra}
+
+\bibitem{bize2003bruit}
+L.-H. \textsc{Bize-Reydellet}; \emph{Bruit quantique {\'e}lectronique et
+  photons micro-ondes}; Th\`ese de doctorat; Universit{\'e} Pierre et Marie
+  Curie-Paris VI (2003).
+\newblock \url{https://tel.archives-ouvertes.fr/tel-00003204}.
+\bibAnnoteFile{bize2003bruit}
+
+\bibitem{hong1987measurement}
+C.~K. \textsc{Hong}, Z.~Y. \textsc{Ou} \& L.~\textsc{Mandel};
+  \enquote{Measurement of subpicosecond time intervals between two photons by
+  interference}; \href{http://dx.doi.org/10.1103/PhysRevLett.59.2044}{Phys.
+  Rev. Lett. \textbf{59}, p. 2044--2046 (1987)}.
+\newblock \url{https://link.aps.org/doi/10.1103/PhysRevLett.59.2044}.
+\bibAnnoteFile{hong1987measurement}
+
+\bibitem{chapdelaine20173d}
+C.~\textsc{Chapdelaine}, A.~\textsc{Mohammad-Djafari}, N.~\textsc{Gac} \&
+  E.~\textsc{Parra}; \enquote{A 3D Bayesian Computed Tomography Reconstruction
+  Algorithm with Gauss-Markov-Potts Prior Model and its Application to Real
+  Data}; \href{http://dx.doi.org/10.3233/FI-2017-1591}{Fundamenta Informaticae
+  \textbf{155}, p. 373--405 (2017)}.
+\bibAnnoteFile{chapdelaine20173d}
+
+\bibitem{mohammad2015bayesian}
+A.~\textsc{Mohammad-Djafari} \& M.~\textsc{Dumitru}; \enquote{Bayesian sparse
+  solutions to linear inverse problems with non-stationary noise with Student-t
+  priors}; \href{http://dx.doi.org/10.1016/j.dsp.2015.08.005}{Digital Signal
+  Processing \textbf{47}, p. 128--156 (2015)}.
+\bibAnnoteFile{mohammad2015bayesian}
+
+\bibitem{ayasso2010joint}
+H.~\textsc{Ayasso} \& A.~\textsc{Mohammad-Djafari}; \enquote{Joint NDT image
+  restoration and segmentation using Gauss--Markov--Potts prior models and
+  variational Bayesian computation};
+  \href{http://dx.doi.org/10.1109/TIP.2010.2047902}{IEEE Transactions on Image
+  Processing \textbf{19}, p. 2265--2277 (2010)}.
+\bibAnnoteFile{ayasso2010joint}
+
+\bibitem{zhao2016joint}
+N.~\textsc{Zhao}, A.~\textsc{Basarab}, D.~\textsc{Kouam{\'e}} \& J.-Y.
+  \textsc{Tourneret}; \enquote{Joint segmentation and deconvolution of
+  ultrasound images using a hierarchical Bayesian model based on generalized
+  Gaussian priors}; \href{http://dx.doi.org/10.1109/TIP.2016.2567074}{IEEE
+  transactions on Image Processing \textbf{25}, p. 3736--3750 (2016)}.
+\bibAnnoteFile{zhao2016joint}
+
+\bibitem{bertsekas1997nonlinear}
+D.~P. \textsc{Bertsekas}; \enquote{Nonlinear programming};
+  \href{http://dx.doi.org/10.1057/palgrave.jors.2600425}{Journal of the
+  Operational Research Society \textbf{48}, p. 334--334 (1997)}.
+\bibAnnoteFile{bertsekas1997nonlinear}
+
+\bibitem{figueiredo2007gradient}
+M.~A. \textsc{Figueiredo}, R.~D. \textsc{Nowak} \& S.~J. \textsc{Wright};
+  \enquote{Gradient projection for sparse reconstruction: Application to
+  compressed sensing and other inverse problems};
+  \href{http://dx.doi.org/10.1109/JSTSP.2007.910281}{IEEE Journal of selected
+  topics in signal processing \textbf{1}, p. 586--597 (2007)}.
+\bibAnnoteFile{figueiredo2007gradient}
+
+\bibitem{moskalets2015first}
+M.~\textsc{Moskalets}; \enquote{First-order correlation function of a stream of
+  single-electron wave packets};
+  \href{http://dx.doi.org/10.1103/PhysRevB.91.195431}{Phys. Rev. B \textbf{91},
+  p. 195\,431 (2015)}.
+\newblock \url{https://link.aps.org/doi/10.1103/PhysRevB.91.195431}.
+\bibAnnoteFile{moskalets2015first}
+
+\bibitem{moskalets2017single}
+M.~\textsc{Moskalets}; \enquote{Single-particle emission at finite
+  temperatures}; \href{http://dx.doi.org/10.1063/1.4995639}{Low Temperature
+  Physics \textbf{43}, p. 865--876 (2017)}.
+\bibAnnoteFile{moskalets2017single}
+
+\bibitem{heisenberg1949physical}
+W.~\textsc{Heisenberg}; \emph{The physical principles of the quantum theory}
+  (Courier Corporation) (1949).
+\bibAnnoteFile{heisenberg1949physical}
+
+\bibitem{martin1992wave}
+T.~\textsc{Martin} \& R.~\textsc{Landauer}; \enquote{Wave-packet approach to
+  noise in multichannel mesoscopic systems};
+  \href{http://dx.doi.org/10.1103/PhysRevB.45.1742}{Physical Review B
+  \textbf{45}, p. 1742 (1992)}.
+\bibAnnoteFile{martin1992wave}
+
+\bibitem{wiener1949extrapolation}
+N.~\textsc{Wiener}; \enquote{Extrapolation, interpolation and smoothing of
+  stationary time series-with engineering applications' MIT Press};   (1949).
+\bibAnnoteFile{wiener1949extrapolation}
+
+\bibitem{fessler1996mean}
+J.~A. \textsc{Fessler}; \enquote{Mean and variance of implicitly defined biased
+  estimators (such as penalized maximum likelihood): Applications to
+  tomography}; \href{http://dx.doi.org/10.1109/83.491322}{IEEE Transactions on
+  Image Processing \textbf{5}, p. 493--506 (1996)}.
+\bibAnnoteFile{fessler1996mean}
+
+\bibitem{pereyra2017maximum}
+M.~\textsc{Pereyra}; \enquote{Maximum-a-posteriori estimation with bayesian
+  confidence regions}; \href{http://dx.doi.org/10.1137/16M1071249}{SIAM Journal
+  on Imaging Sciences \textbf{10}, p. 285--302 (2017)}.
+\bibAnnoteFile{pereyra2017maximum}
+
+\bibitem{bardsley2012mcmc}
+J.~M. \textsc{Bardsley}; \enquote{MCMC-based image reconstruction with
+  uncertainty quantification}; \href{http://dx.doi.org/10.1137/11085760X}{SIAM
+  Journal on Scientific Computing \textbf{34}, p. A1316--A1332 (2012)}.
+\bibAnnoteFile{bardsley2012mcmc}
+
+\bibitem{howard2014sampling}
+M.~\textsc{Howard}, A.~\textsc{Luttman} \& M.~\textsc{Fowler};
+  \enquote{Sampling-based uncertainty quantification in deconvolution of X-ray
+  radiographs}; \href{http://dx.doi.org/10.1016/j.cam.2014.02.024}{Journal of
+  Computational and Applied Mathematics \textbf{270}, p. 43--51 (2014)}.
+\bibAnnoteFile{howard2014sampling}
+
+\bibitem{afonso2011augmented}
+M.~V. \textsc{Afonso}, J.~M. \textsc{Bioucas-Dias} \& M.~A.
+  \textsc{Figueiredo}; \enquote{An augmented Lagrangian approach to the
+  constrained optimization formulation of imaging inverse problems};
+  \href{http://dx.doi.org/10.1109/TIP.2010.2076294}{IEEE Transactions on Image
+  Processing \textbf{20}, p. 681--695 (2011)}.
+\bibAnnoteFile{afonso2011augmented}
+
+\bibitem{lanteri2002penalized}
+H.~\textsc{Lanteri}, M.~\textsc{Roche} \& C.~\textsc{Aime}; \enquote{Penalized
+  maximum likelihood image restoration with positivity constraints:
+  multiplicative algorithms};
+  \href{http://dx.doi.org/10.2140/pjm.1966.16.1}{Inverse problems \textbf{18},
+  p. 1397 (2002)}.
+\bibAnnoteFile{lanteri2002penalized}
+
+\bibitem{chan2012multiplicative}
+R.~H. \textsc{Chan} \& J.~\textsc{Ma}; \enquote{A multiplicative iterative
+  algorithm for box-constrained penalized likelihood image restoration};
+  \href{http://dx.doi.org/10.1109/TIP.2012.2188811}{IEEE Transactions on Image
+  Processing \textbf{21}, p. 3168--3181 (2012)}.
+\bibAnnoteFile{chan2012multiplicative}
+
+\bibitem{bardsley2012mcmc2}
+J.~M. \textsc{Bardsley} \& C.~\textsc{Fox}; \enquote{An MCMC method for
+  uncertainty quantification in nonnegativity constrained inverse problems};
+  \href{http://dx.doi.org/10.1080/17415977.2011.637208}{Inverse Problems in
+  Science and Engineering \textbf{20}, p. 477--498 (2012)}.
+\bibAnnoteFile{bardsley2012mcmc2}
+
+\end{thebibliography}

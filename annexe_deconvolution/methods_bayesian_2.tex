@@ -1,0 +1,469 @@
+
+%\documentclass[aps,prb,superscriptaddress,twocolumn,preprint]{revtex4-1}
+\documentclass[aps,prb,superscriptaddress,preprint]{revtex4-1}
+%\documentclass[a4paper, preprint]{article}
+
+\usepackage{todonotes}
+
+%%%%%%%%%%
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{epsfig}
+\usepackage{siunitx}
+
+
+%%%%% Few macros
+\newcommand{\md}{\mathrm{d}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\mi}{\mathrm{i}}
+
+\usepackage{float}
+\usepackage{ifthen}
+\usepackage{xspace}
+\usepackage{relsize}
+
+\usepackage{algorithm}
+%\usepackage[]{algorithm2e}
+\usepackage{algorithmic}
+
+\usepackage{cancel}
+\usepackage{ulem}
+
+\begin{document}
+	
+	\subsection{Bayesian deconvolution method}
+	
+	The relation between $\Delta W^{(e)}_{S,n}(\omega)$ and $\widetilde{\Delta W}^{(e)}_{S,n}(\omega)$ is given by the convolution product, see \sout{C.(8-9)} \eqref{...} :
+	\begin{equation}
+	\widetilde{\Delta W}^{(e)}_{S,n}(\omega) = h_{n}(\omega)\ast\Delta W^{(e)}_{S,n}(\omega) = \int d\omega^{\prime}  h_{n}(\omega^{\prime}-\omega)\Delta W^{(e)}_{S,n}(\omega^{\prime})
+	\label{eq:convolution}
+	\end{equation}
+	In order to estimate $\Delta W^{(e)}_{S,n}(\omega)$ based on $\widetilde{\Delta W}^{(e)}_{S,n}(\omega)$, we need to implement a deconvolution algorithm. Since deconvolution is an ill-posed problem, simply performing a division in Fourier space leads to an estimation which is not robust to measurement errors. The sensibility to errors\textcolor{blue}{, due to lost informations,} correspond to zero or close to zero values of the Fourier transform of $h_{n}$. In order to find a more robust estimation with correct physical properties, we propose to add appropriate prior information on $\Delta W^{(e)}_{S,n}(\omega)$ thanks to a Bayesian framework \cite{Ayasso2010,Djafari2015,Zhao2016}.
+	
+	The discretized forward model for convolution \eqref{eq:convolution} can be expressed as
+	\begin{equation}
+	\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n} = \mathbf{H}_{n}.\mathbf{\Delta W}^{(e)}_{S,n} + \mathbf{N}_{n},
+	\end{equation}
+	where bold characters stand for vectors and matrices resulting from discretization. $\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}$ is the vector of data points, $\mathbf{H}_{n}$ is the convolution matrix, and $\mathbf{\Delta W}^{(e)}_{S,n}$ is the unknown quantity we are looking for. The term $\mathbf{N}_{n}$ is added to take account for all the errors (measurement and discretization). It is modeled as Gaussian random vector, with known covariance matrix $\mathbf{V}_{e}$ with diagonal
+	elements $V_{e,i}$ estimated thanks to repeated experiments.  This gives the expression of the probability distribution of $\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}$ knowing $\mathbf{\Delta W}^{(e)}_{S,n}$ and $\mathbf{V}_{e}$, which is called the likelihood :
+	\begin{equation}
+	p\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}\left|\mathbf{\Delta W}^{(e)}_{S,n}, \mathbf{V}_{e} \right.\right)  \propto \exp\left(-\frac{1}{2}\left| \left| \widetilde{\mathbf{\Delta W}}^{(e)}_{S,n} - \mathbf{H}_{n}.\mathbf{\Delta W}^{(e)}_{S,n} \right| \right|^{2}_{\mathbf{V}_{e}}  \right)
+	\label{likelihood}
+	\end{equation}
+	where $||\mathbf{x}||_{\mathbf{V}\textcolor{blue}{_{e}}}^{2}=\sum_i \frac{x_{i}^2}{\textcolor{blue}{v_{e_{i}}}}$. Finding the argument which maximize\textcolor{blue}{s} the likelihood, is equivalent to perform a division in Fourier space since the \textcolor{blue}{convolution matrix} $\mathbf{H}_{n}$ is diagonal in the Fourier basis. This argument is dominated by $\mathbf{H}^{-1}_{n}\mathbf{N}_{n}$ terms.
+	
+	\textcolor{blue}{In the Bayesian framework, by adding a prior information}, we want to enforce physical properties such that $\Delta W^{(e)}_{S,n}\left(\omega\right) $ tends to zero when $\left|\omega \right|$ increases. For this purpose, we assign a Gaussian prior distribution on $\mathbf{\Delta W}^{(e)}_{S,n}$ :
+	\begin{equation}
+	p\left( \mathbf{\Delta W}^{(e)}_{S,n}\left| \mathbf{V}_{f} \right.  \right)  \propto  \exp\left(-\frac{1}{2}\left| \left| \mathbf{\Delta W}^{(e)}_{S,n} \right| \right|^{2}_{\mathbf{V}_{f}}  \right).
+	\label{prior}
+	\end{equation}
+	For variances $\mathbf{V}_{f}$, we use the expression :
+	\begin{equation}
+	V_{f}(\omega) = v_{f}\exp \left( -\frac{\omega^{2}}{w^{2}} \right),
+	\label{eq:variances of delta w}
+	\end{equation}
+	where $v_f$ and $w$ are parameters tuned to enforce limit condition when $\left|\omega \right|$ increases.
+	
+	Applying Bayes'rule, the posterior probability distribution of $\mathbf{\Delta W}^{(e)}_{S,n}$ combines likelihood \eqref{likelihood} and prior distribution \eqref{prior} :
+	\begin{equation}
+	p\left(\mathbf{\Delta W}^{(e)}_{S,n}|\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n},\mathbf{V}_{e},\mathbf{V}_{f}\right) = \frac{p\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}|\mathbf{\Delta W}^{(e)}_{S,n},\mathbf{V}_{e}\right)p\left(\mathbf{\Delta W}^{(e)}_{S,n}|\mathbf{V}_{f} \right)}{p\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}|\mathbf{V}_{e},\mathbf{V}_{f}\right)}.
+	\label{Bayes}
+	\end{equation}
+	The argument which maximize\textcolor{blue}{s} this posterior distribution \eqref{Bayes}, is the mo\textcolor{blue}{st} likely estimate of $\mathbf{\Delta W}^{(e)}_{S,n}$ knowing both the measurement results $\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}$, $\mathbf{V}_{e}$, and prior information encoded in $\mathbf{V}_{f}$. \textcolor{blue}{Indeed,} this Maximum A Posteriori (MAP)\textcolor{blue}{, which also in this case is the Posterior Mean,} is robust to errors $\mathbf{N}_{n}$.
+	Because model evidence\textcolor{blue}{, the term in the denominator of \eqref{Bayes},} $p\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}|\mathbf{V}_{e},\mathbf{V}_{f}\right)$ does not depend on $\mathbf{\Delta W}^{(e)}_{S,n}$, MAP estimate becomes equivalent to the minimization of the criterion:
+	\begin{equation}
+	J(\mathbf{\Delta W}^{(e)}_{S,n}) = \frac{1}{2}\left|\left|\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}-\mathbf{H}_{n}.\mathbf{\Delta W}^{(e)}_{S,n}  \right| \right|^{2}_{\mathbf{V}_{e}}+\frac{1}{2}\left| \left| \mathbf{\Delta W}^{(e)}_{S,n}  \right| \right|^{2}_{\mathbf{V}_{f}}.
+	\label{eq:criterion}
+	\end{equation}
+	Estimated $\mathbf{\Delta W}^{(e)}_{S,n}$ has to comply with a box-constraint given by Pauli exclusion principle and Cauchy-Schwartz inequality\cite{DegioWigner2013} : implemented algorithm \ref{alg : Detailed algorithm} looks for a minimum of  criterion \eqref{eq:criterion} inside the box-constraint thanks to a Projected Gradient Descent method \cite{Bertsekas1999}. In this algorithm, $M_{n}(\omega)$ denotes Cauchy-Schwartz inequality bounds, $\forall n,\omega$, and is explicitly given in Ref. \onlinecite{DegioWigner2013}.
+	
+	In algorithm \ref{alg : Detailed algorithm}, $\mathbf{V}_{f}$ is assumed to be known thanks to expression \eqref{eq:variances of delta w}.
+	 But in practice $\mathbf{V}_{f}$ is unknown, so it is estimated as well as $\mathbf{\Delta W}^{(e)}_{S,n}$. Then the estimate is both arguments $\mathbf{V}_{f}$ and $\mathbf{\Delta W}^{(e)}_{S,n}$ which maximize their joint posterior probability distribution. The method used to find the Joint Maximum A Posteriori (JMAP) as explained in Ref. \onlinecite{Djafari2015} consists of assigning a conjugate Inverse Gamma prior distribution on $\mathbf{V}_{f}$ \textcolor{blue}{with} shape and scale parameters  $\alpha$ and $\beta(\omega)$, $\forall \omega$. \textcolor{blue}{Then obtaining the expression of the joint posterior probability of both unknowns and maximizing alternatively with respect to} $\mathbf{\Delta W}^{(e)}_{S,n}$ as previously, and optimize the value of $\mathbf{V}_{f}$ with the following step:
+	\begin{equation}
+	V_{f}(\omega) = \frac{\beta(\omega)+\frac{1}{2}\Delta W^{(e)}_{S,n}(\omega)^{2}}{\alpha+\frac{3}{2}}
+	\end{equation}
+	In this context, formula \eqref{eq:variances of delta w} is only used to initialize $\mathbf{V}_{f}$, $\mathbf{\beta}$. \textcolor{blue}{The value of $\mathbf{\alpha}$ determines the closeness of the optimized $\mathbf{V}_{f}$ to} initialization \eqref{eq:variances of delta w}. The closer $\mathbf{\alpha}$ is to -1, the less $\mathbf{V}_{f}$ depends on initialization \eqref{eq:variances of delta w}.
+	
+	\begin{algorithm}[H]
+		\caption{Detailed algorithm}
+		\label{alg : Detailed algorithm}
+		\begin{algorithmic}
+			\STATE{Compute Cauchy-Schwartz bounds $M_{n}(\omega)$}
+			\STATE{Choose amplitude $v_{f}$ and width $w$ of prior \eqref{eq:variances of delta w} for $V_{f}(\omega)$}
+			\STATE{JMAP: initialize $\beta$ with $\beta(\omega) = (\alpha+1)V_{f}(\omega) $}
+			
+			\STATE{Compute the minimum of criterion \eqref{eq:criterion}}
+			\STATE{$\mathbf{\Delta W}^{(e)}_{S,n} = \left(\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\mathbf{H}+\mathbf{V}^{-1}_{f}\right)^{-1}\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}$}
+			\STATE{Project the solution inside the box given by Cauchy-Schwartz bounds:}
+			\STATE{$\Delta W^{(e)}_{S,n}(\omega) := \min(\Delta W^{(e)}_{S,n}(\omega),M_{n}(\omega))$}
+			\STATE{and $\Delta W^{(e)}_{S,n}(\omega) := \max(\Delta W^{(e)}_{S,n}(\omega),-M_{n}(\omega))$}
+			\REPEAT
+			\STATE{Compute the gradient of criterion \eqref{eq:criterion}}
+			\STATE{$\nabla \left(\mathbf{ \Delta W}^{(e)}_{S,n}\right)  = -\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}-\mathbf{H}\mathbf{\Delta W}^{(e)}_{S,n}\right)+\mathbf{V}^{-1}_{f}\mathbf{\Delta W}^{(e)}_{S,n}$}
+			\STATE{Project the gradient $\mathrm{\textbf{P}}\nabla\left(\mathbf{ \Delta W}^{(e)}_{S,n}\right) $ to stay in the box-constraint}
+			\IF{$|\Delta W^{(e)}_{S,n}(\omega)| \geq M_{n}(\omega)$ and $\Delta W^{(e)}_{S,n}(\omega)*\nabla\left( \Delta W^{(e)}_{S,n}\right) (\omega) \leq 0$}
+			\STATE{$\mathrm{P}\nabla\left( \Delta W^{(e)}_{S,n}\right)(\omega) = 0$}
+			\ELSE
+			\STATE{$\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega) = \nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega)$}
+			\ENDIF
+			\STATE{Compute the furthest displacement $d_{\infty}$ in the box along $\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n} \right)$ direction}
+			\FORALL{$\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega) \neq 0$}
+			\STATE{$d_{\infty} := \min\left(\frac{M_{n}(\omega)-\Delta W^{(e)}_{S,n}(\omega)}{\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega)},d_{\infty}\right)$
+			}
+			\ENDFOR
+			\STATE{Compute the optimum displacement $d_{0}$ along $\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right) $ direction}
+			\STATE{$d_{0} = \left|\left|\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{-2}
+				\left( \left|\left|\mathbf{H}\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{2}_{\mathbf{V}_{e}} +\left|\left|\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{2}_{\mathbf{V}_{f}}\right)$}
+			\STATE{Compute one projected descent gradient step}
+			\STATE{$\mathbf{\Delta W}^{(e)}_{S,n} := \mathbf{\Delta W}^{(e)}_{S,n} - \min(d_{0},d_{\infty})\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right) $}
+			
+			\STATE{JMAP: optimize $\mathbf{V}_{f}$\\
+			$V_{f}(\omega) := \frac{\beta(\omega)+\frac{1}{2}\Delta W^{(e)}_{S,n}(\omega)^{2}}{\textcolor{blue}{\alpha}+\frac{3}{2}}$}
+			
+			
+			\UNTIL{\textcolor{blue}{MAP:} $-\ln\left(p\left(\mathbf{\Delta W}^{(e)}_{S,n}\left|\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n},\mathbf{V}_{e}, \mathbf{V}_{f}\right. \right) \right) $ \\
+				 \textcolor{blue}{or JMAP: $-\ln\left(p\left(\mathbf{\Delta W}^{(e)}_{S,n}, \mathbf{V}_{f} \left|\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n},\mathbf{V}_{e}, \mathbf{\beta}, \alpha \right. \right) \right) $}
+				 is minimized}
+		\end{algorithmic}
+	\end{algorithm}
+	
+	
+	
+	
+	%\noindent \textbf{Detailed deconvolution algorithm:}\\
+	%\indent Compute Cauchy-Schwartz bounds $M_{n}(\omega)$\\
+	%\indent Choose amplitude $v_{f}$ and width $w$ of $V_{f}(\omega)$ prior\\
+	%\indent Compute the minimum of criterion $J$:\\
+	% \indent $\mathbf{\Delta W}^{(e)}_{S,n} = \left(\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\mathbf{H}+\mathbf{V}^{-1}_{f}\right)^{-1}\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}$\\
+	%\indent Project the solution inside the box given by Cauchy-Schwartz bounds:\\
+	%\indent $\Delta W^{(e)}_{S,n}(\omega) := \min(\Delta W^{(e)}_{S,n}(\omega),M_{n}(\omega))$\\
+	%\indent and $\Delta W^{(e)}_{S,n}(\omega) := \max(\Delta W^{(e)}_{S,n}(\omega),-M_{n}(\omega))$\\
+	%\indent \textbf{repeat}\\
+	%\indent \indent  Compute the gradient of the criterion $J$:\\
+	%\indent \indent $\nabla \left(\mathbf{ \Delta W}^{(e)}_{S,n}\right)  = -\mathbf{H}^{\top}\mathbf{V}^{-1}_{e}\left(\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n}-\mathbf{H}\mathbf{\Delta W}^{(e)}_{S,n}\right)+\mathbf{V}^{-1}_{f}\mathbf{\Delta W}^{(e)}_{S,n}$\\
+	%\indent \indent  Project the gradient $\mathrm{\textbf{P}}\nabla\left(\mathbf{ \Delta W}^{(e)}_{S,n}\right) $ to stay in the box-constraint:\\
+	%\indent \indent  \textbf{if} $|\Delta W^{(e)}_{S,n}(\omega)| \geq M_{n}(\omega)$ and $\Delta W^{(e)}_{S,n}(\omega)*\nabla\left( \Delta W^{(e)}_{S,n}\right) (\omega) \leq 0$ \textbf{then} \\
+	%\indent \indent \indent  $\mathrm{P}\nabla\left( \Delta W^{(e)}_{S,n}\right)(\omega) = 0$\\
+	%\indent \indent  \textbf{else}\\
+	%\indent \indent \indent  $\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega) = \nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega)$\\
+	%\indent \indent \textbf{end if}\\
+	%\indent \indent Compute furthest displacement $d_{\infty}$ in the box along $\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n} \right)$ direction:\\
+	%\indent \indent  \textbf{for all} $\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega) \neq 0$ \textbf{do} \\
+	%\indent \indent \indent $d_{\infty} \gets \min\left(\frac{M_{n}(\omega)-\Delta W^{(e)}_{S,n}(\omega)}{\mathrm{P}\nabla\left(\Delta W^{(e)}_{S,n}\right)(\omega)},d_{\infty}\right)$\\	
+	%\indent \indent \textbf{end for}	\\
+	%\indent \indent  Compute the optimum displacement $d_{0}$ along $\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right) $ direction:\\
+	%\indent \indent  $d_{0} = \left|\left|\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{-2}
+	%\left( \left|\left|\mathbf{H}\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{2}_{\mathbf{V}_{e}} +\left|\left|\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right)\right|\right|^{2}_{\mathbf{V}_{f}}\right)$\\
+	%\indent \indent Compute one projected descent gradient step:\\
+	%\indent \indent $\mathbf{\Delta W}^{(e)}_{S,n} \gets \mathbf{\Delta W}^{(e)}_{S,n} - \min(d_{0},d_{\infty})\mathrm{\textbf{P}}\nabla\left( \mathbf{\Delta W}^{(e)}_{S,n}\right) $\\
+	%\indent \textbf{until} $-\ln\left(p\left(\mathbf{\Delta W}^{(e)}_{S,n}\left|\widetilde{\mathbf{\Delta W}}^{(e)}_{S,n},\mathbf{V}_{e} \right. \right) \right) $ is minimized\\
+	%
+	%In the previous algorithm we assumed $\mathbf{V}_{f}$ to be known. In practice we considered its estimation by choosing a conjugate prior for it. Then we obtain an expression for the joint posterior which is maximized in via an alternate optimization\cite{Djafari2015}. Explicitly, this adds a final step in the repeat loop of the previous algorithm which corresponds to the optimization with respect to $\mathbf{V}_{f}$ obtained analytically by $V_{f}(\omega) = \frac{\beta(\omega)}{\alpha}$ with $\alpha \gets \alpha + \frac{3}{2}$, $\beta(\omega) \gets \beta(\omega)+\frac{1}{2}\Delta W^{(e)}_{S,n}(\omega)^{2}$ . Determination of the prior $\mathbf{\alpha}$ and $\mathbf{\beta}$ are fixed.
+	%
+	
+	
+	\begin{thebibliography}{1}
+		
+		\bibitem{singlephoton}
+		M. D. Eisaman, J. Fan, A. Migdall, and S. V. Polyakov, \newblock{Single-photon sources and detectors}, \newblock {{\em Review of Scientific Instruments} {\bf 82}, 071101 (2011).}
+		
+		\bibitem{atombyatom}
+		D. Barredo, S. de L{\'e}s{\'e}leuc, V. Lienhard, T. Lahaye, and A. Browaeys, \newblock {An atom-by-atom assembler of defect-free arbitrary two-dimensional atomic arrays},
+		\newblock {{\em Science} {\bf 354}, 1021 (2016).}
+		
+		\bibitem{singleion}
+		C.-W. Chou, C. Kurz, D. B. Hume, P. N. Plessow, D. R. Leibrandt, and  D. Leibfried, \newblock{Preparation and coherent manipulation of pure quantum states of a single molecular ion}, \newblock {{\em Nature} {\bf 545}, 203 (2017).}
+		
+		\bibitem{Ondemand}
+		G. F{\`e}ve, A. Mah{\'e}, J.-M. Berroir, T. Kontos, B.
+		Pla\c{c}ais, C. Glattli, A.~Cavanna, B. Etienne, and Y. Jin,
+		\newblock {An On-Demand Coherent Single Electron Source},
+		\newblock {{\em Science} {\bf 316}, 1169 (2007). }
+		
+		\bibitem{Leicht2011}
+		C. Leicht, P. Mirovsky, B. Kaestner, F. Hohls, V. Kashcheyevs, E.V. Kurganova, U. Zeitler, T. Weimann, K. Pierz, and H.W. Schumacher,
+		\newblock {Generation of energy selective excitations in quantum Hall edge states},
+		\newblock {{\em  Semiconductor Science and Technology} {\bf 26}, 055010 (2011).}
+		
+		\bibitem{Dubois2013}
+		J.~Dubois, T.~Jullien, F.~Portier, P.~Roche, A.~Cavanna, Y.~Jin, W.~Wegscheider,
+		P.~Roulleau, and D.~C. Glattli,
+		\newblock {Minimal-excitation states for electron quantum optics using
+			levitons},
+		\newblock {\em Nature}, {\bf 502}, 659 (2013).
+		
+		\bibitem{Fletcher2013}
+		J.~D. Fletcher, P.~See, H.~Howe, M.~Pepper, S.~P. Giblin, J.~P. Griffiths,
+		G.~A.~C. Jones, I.~Farrer, D.~A. Ritchie, T.~J. B.~M. Janssen, and
+		M.~Kataoka,
+		\newblock Clock-controlled emission of single-electron wave packets in a
+		solid-state circuit,
+		\newblock {\em Phys. Rev. Lett.} {\bf 111}, 216807 (2013).
+		
+		\bibitem{Roussely2018}
+		G. Roussely, E. Arrighi, G. Georgiou, S. Takada, M. Schalk, M. Urdampilleta, A. Ludwig, A. D. Wieck, P. Armagnat, T. Kloss, X. Waintal, T. Meunier, and C. B\"{a}uerle,
+		\newblock{Unveiling the bosonic nature of an ultrashort few-electron pulse}, Arxiv 1711.03509 (2018).
+		
+		\bibitem{Bertoni2000}
+		A. Bertoni, P. Bordone, R. Brunetti, C. Jacoboni, and
+		S. Reggiani, \newblock{Quantum Logic Gates based on Coherent Electron Transport in Quantum Wires},  \newblock{\em Phys. Rev. Lett.} {\bf 84}, 5912 (2000).
+		
+		\bibitem{Yamamoto2012}
+		M. Yamamoto, S. Takada, C. B\"{a}uerle, K. Watanabe, A. D. Wieck, and S. Tarucha,
+		\newblock{Electrical control of a solid-state flying qubit},
+		\newblock {\em Nature Nanotechnology} {\bf 7}, 247 (2012).
+		
+		%\bibitem{Ionicioiu2001}
+		%R. Ionicioiu, G. Amaratunga, and F. Udrea, \em{Int. J. Mod. Phys.},
+		%\bf{15}, 125 (2001).
+		
+		\bibitem{Smithey:1993-1}
+		D.~T. Smithey,M. Beck, M.~G. Raymer, A. Faridani,
+		\newblock{Measurement of the Wigner distribution and the density matrix of a light mode using optical homodyne tomography: Application to squeezed states and the vacuum}.
+		\emph{Phys. Rev. Lett.},\textbf{70}, 1244 (1993).
+		
+		\bibitem{Lvovsky:2009-1}
+		A.~I. Lvovsky, and  M.~G. Raymer,
+		\newblock{Continuous-variable optical quantum-state tomography},
+		\emph{Rev. Mod. Phys.} \textbf{81},
+		299(2009).
+		
+		\bibitem{Marguerite2017}
+		A.~Marguerite, E.~Bocquillon, J.-M.~Berroir, B.~Pla\c{c}ais, A.~Cavanna, Y.~Jin, P.~Degiovanni, and G.~F{\`e}ve,
+		\newblock Two-particle interferometry in quantum Hall edge channels, \newblock {\em Physica Status Solidi B} {\bf 254}, 1600618 (2017).
+		
+		\bibitem{These:Roussel}
+		B. Roussel, Autopsy of a quantum electrical current.
+		PhD thesis, Universit\'{e} de Lyon (2017).
+		
+		\bibitem{Levitov96}
+		H. Lee, L. S. Levitov, and G.~Lesovik.
+		\newblock Electron counting statistics and coherent states of electric current.
+		\newblock {\em J. Math. Phys.}  {\bf 37}, 4845 (1996).
+		
+		\bibitem{Keeling06}
+		J. Keeling, I. Klich, and L.~Levitov,
+		\newblock Minimal excitation states of electrons in one dimensional wires,
+		\newblock {\em Phys. Rev. Lett.}  {\bf 97} 116403, (2006).
+		
+		\bibitem{Grenier2013}
+		C. Grenier, J. Dubois, T. Jullien, P. Roulleau, D. C. Glattli, P. Degiovanni, Fractionalization of minimal excitations in integer quantum Hall edge channels, Phys. Rev.B {\bf 88}, 085302 (2013).
+		
+		
+		
+		\bibitem{Ferraro2018}
+		D. Ferraro, F. Ronetti, L. Vannucci, M. Acciai, J. Rech, T. Jockheere, T. Martin, and M. Sassetti, Hong-Ou-Mandel characterization of multiply charged Levitons, The European Physical Journal Special Topics {\bf 227}, 1345-1359 (2018).
+		
+		
+		\bibitem{Gabelli2013}
+		J. Gabelli and B. Reulet,
+		\newblock Shaping a time-dependent excitation to minimize the shot noise in a
+		tunnel junction,
+		\newblock {\em Phys. Rev. B} {\bf 87}, 075403 (2013).
+		
+		\bibitem{Jullien2014}
+		T.~Jullien, P.~Roulleau, B.~Roche, A.~Cavanna, Y.~Jin, and D.~C. Glattli,
+		\newblock {Quantum tomography of an electron},
+		\newblock {\em Nature} {\bf 514}, 603 (2014).
+		
+		
+		\bibitem{Kataoka2016}
+		M.~Kataoka, N.~Johnson, C.~Emary, P.~See, J.~P. Griffiths, G.~A.~C. Jones,
+		I.~Farrer, D.~A. Ritchie, M.~Pepper, and T.~J. B.~M. Janssen,
+		\newblock Time-of-flight measurements of single-electron wave packets in
+		quantum hall edge states,
+		\newblock {\em Phys. Rev. Lett.} {\bf 116}, 126803 (2016).
+		
+		\bibitem{Altimiras2009}
+		C.~Altimiras, H.~le~Sueur, U.~Gennser, A.~Cavanna, D.~Mailly, and F.~Pierre,
+		\newblock {Non-equilibrium edge-channel spectroscopy in the integer quantum
+			Hall regime},
+		\newblock {\em Nature Physics} {\bf 6}, 34 (2009).
+		
+		\bibitem{Bocquillon2014}
+		E.~Bocquillon, V.~Freulon, F.D.~Parmentier, J.-M.~Berroir, B.~Pla\c{c}ais, C.~Wahl, J.~Rech, T.~Jonckheere, T.~Martin, C.~Grenier,
+		D.~Ferraro, P.~Degiovanni, and G.~F\`{e}ve,
+		\newblock{Electron quantum optics in ballistic chiral conductors},
+		\newblock{\em Ann. Phys.}  {\bf 526}, 1 (2014).
+		
+		\bibitem{Haack2013}
+		G. Haack, M. Moskalets, and M. B\"uttiker,
+		\newblock{Glauber coherence of single-electron sources},
+		\newblock{\em Phys. Rev. B}, {\bf 87}, 201302 (2013).
+		
+		
+		
+		\bibitem{DegioWigner2013}
+		D.~Ferraro, A.~Feller, A.~Ghibaudo, E.~Thibierge, E.~Bocquillon, G.~F{\`e}ve,
+		Ch. Grenier, and P.~Degiovanni,
+		\newblock {Wigner function approach to single electron coherence in quantum
+			Hall edge channels},
+		\newblock {\em Phys. Rev. B} {\bf 88} 205303 (2013).
+		
+		\bibitem{Kashcheyevs2017}
+		V. Kashcheyevs and P. Samuelsson,
+		\newblock Classical-to-quantum crossover in electron on-demand emission,
+		\newblock {\em Phys. Rev. B} {\bf 95}, 245424 (2017).
+		
+		\bibitem{Wigner}
+		E. Wigner, On the Quantum Correction For Thermodynamic Equilibrium, \newblock {\em Phys. Rev.} {\bf 40}, 749 (1932).
+		
+		
+		\bibitem{Vanevic2007}
+		M. Vanevi\ifmmode~\acute{c}\else \'{c}\fi{}, Y.~V. Nazarov, and W.
+		Belzig,
+		\newblock Elementary events of electron transfer in a voltage-driven quantum
+		point contact,
+		\newblock {\em Phys. Rev. Lett.} {\bf 99}, 076601 (2007).
+		
+		\bibitem{Vanevic2016}
+		M. Vanevi\ifmmode~\acute{c}\else \'{c}\fi{}, J. Gabelli, W.
+		Belzig, and B. Reulet,
+		\newblock Electron and electron-hole quasiparticle states in a driven quantum
+		contact,
+		\newblock {\em Phys. Rev. B} {\bf 93}, 041416 (2016).
+		
+		
+		
+		
+		\bibitem{Misiorny2018}
+		M. Misiorny, G. Feve and J. Splettstoesser,
+		\newblock Shaping charge excitations in chiral edge states with a time-dependent gate voltage
+		\newblock {\em Phys. Rev. B} {\bf 97}, 075426 (2018).
+		
+		
+		\bibitem{Tomo2011}
+		Ch.~Grenier, R.~Herv{\'e}, E.~Bocquillon, F.~D. Parmentier, B.~Pla\c{c}ais, J.~M.
+		Berroir, G.~F{\`e}ve, and P.~Degiovanni,
+		\newblock {Single-electron quantum tomography in quantum Hall edge channels},
+		\newblock {\em New Journal of Physics} {\bf 13}, 093007 (2011).
+		
+		\bibitem{Liu1998}
+		R.~C. Liu, B.~Odom, Y.~Yamamoto, and S.~Tarucha,
+		\newblock Quantum interference in electron collision,
+		\newblock {\em Nature}  {\bf 391}, 263 (1998).
+		
+		\bibitem{Neder2007}
+		I.~Neder, N.~Ofek, Y.~Chung, M.~Heiblum, D.~Mahalu, and V.~Umansky,
+		\newblock Interference between two indistinguishable electrons from independent
+		sources,
+		\newblock {\em Nature} {\bf 448}, 333 (2007).
+		
+		\bibitem{HOM}
+		C.~K. Hong, Z.~Y. Ou, and L.~Mandel,
+		\newblock Measurement of subpicosecond time intervals between two photons by
+		interference,
+		\newblock {\em Phys. Rev. Lett.} {\bf 59}, 2044 (1987).
+		
+		\bibitem{Ol'khovskaya2008}
+		S.~Ol'khovskaya, J.~Splettstoesser, M.~Moskalets, and M.~B\"uttiker,
+		\newblock Shot noise of a mesoscopic two-particle collider,
+		\newblock {\em Phys. Rev. Lett.} {\bf 101}, 166802 (2008).
+		
+		\bibitem{Bocquillon2013}
+		E.~Bocquillon, V.~Freulon, J.-M. Berroir, P.~Degiovanni, B.~Pla\c{c}ais, A.~Cavanna, Y.~Jin, and G. F{\`e}ve,
+		\newblock {Coherence and indistinguishability of single electron wavepackets
+			emitted by independent sources},
+		\newblock {\em Science} {\bf 339}, 1054 (2013).
+		
+		
+		
+		\bibitem{Reydellet2003}
+		L.-H. Reydellet, P.~Roche, D.~C. Glattli, B.~Etienne, and Y.~Jin,
+		\newblock Quantum partition noise of photon-created electron-hole pairs,
+		\newblock {\em Phys. Rev. Lett.} {\bf 90}, 176803 (2003).
+		
+		\bibitem{Rychkov2005}
+		V.~S. Rychkov, M.~L. Polianski, and M. B\"uttiker,
+		\newblock Photon-assisted electron-hole shot noise in multiterminal conductors,
+		\newblock {\em Phys. Rev. B} {\bf 72}, 155326 (2005).
+		
+		\bibitem{Moskalets2017}
+		M. Moskalets, Single-particle emission at finite temperatures, \newblock {\em Low temperature physics}, {\bf 43}, 865 (2017).
+		
+		
+		\bibitem{Marguerite2016}
+		A.~Marguerite, C.~Cabart, C.~Wahl, B.~Roussel, V.~Freulon, D.~Ferraro, Ch.
+		Grenier, J.-M. Berroir, B.~{Pla\ifmmode \mbox\c{c}\else \c{c}\fi{}ais},
+		T.~Jonckheere, J.~Rech, T.~Martin, P.~Degiovanni, A.~Cavanna, Y.~Jin, and
+		G.~F{\`e}ve,
+		\newblock {Decoherence and relaxation of a single electron in a one-dimensional
+			conductor},
+		\newblock {\em Phys. Rev. B} {\bf 94} 115311 (2016).
+		
+		\bibitem{Hofer:2016-2}
+		P.P. Hofer, D.~Dasenbrook, and C.~Flindt,
+		\newblock On-demand entanglement generation using dynamic single electron
+		sources,
+		\newblock {\em Physica Status Solidi B} {\bf 254}, 1600582 (2017).
+		
+		\bibitem{Thibierge2016}
+		\'E. Thibierge, D.~Ferraro, B.~Roussel, C.~Cabart, A.~Marguerite, G.~F\`eve,
+		and P.~Degiovanni,
+		\newblock Two-electron coherence and its measurement in electron quantum
+		optics,
+		\newblock {\em Phys. Rev. B} {\bf 93}, 081302 (2016).
+		
+		\bibitem{Grimsmo:2016-1}
+		A.L. Grimsmo, F.~Qassemi, , B.~Reulet, and A.~Blais,
+		\newblock Quantum optics theory of electronic noise in quantum conductors,
+		\newblock {\em Phys. Rev. Lett.}  {\bf 116}, 043602  (2015).
+		
+		\bibitem{Virally:2016-1}
+		S. Virally, J.~O. Simoneau, C. Lupien, and B.
+		Reulet,
+		\newblock Discrete photon statistics from continuous microwave measurements,
+		\newblock {\em Phys. Rev. A} {\bf 93}, 043813 (2016).
+		
+		\bibitem{Roussel:2016-2}
+		B.~Roussel, C.~Cabart, G.~F{\`e}ve, E.~Thibierge, and P.~Degiovanni,
+		\newblock Electron quantum optics as quantum signal processing,
+		\newblock {\em Physica Status Solidi B} {\bf 254}, 16000621 (2017).
+		
+		%\bibitem{Wiener}
+		%N.~Wiener,
+		%\newblock {\em {Extrapolation, Interpolation, and Smoothing of Stationary Time
+		%  Series}},
+		%\newblock Wiley and Sons, 1949.
+		
+		\bibitem{Wannier:1937-1}
+		G.H. Wannier,
+		\newblock The structure of electronic excitation levels in insulating crystal,
+		\newblock {\em Physical Review} {\bf 52}, 191 (1937).
+		
+		\bibitem{Marzari:2012-1}
+		N. Marzari, A. A. Mostofi, R. J. Yates, I. Souza, Ivo and D. Vanderbilt,
+		\newblock Maximally localized Wannier functions: Theory and applications,
+		\newblock{\em Rev. Mod. Phys.} {\bf 84}, 1419 (2012).
+		
+		\bibitem{Moskalets2015}
+		M. Moskalets,
+		\newblock First-order correlation function of a stream of single-electron wavepackets,
+		\newblock{\em Phys. Rev. B} {\bf 91}, 195431 (2015).
+		
+		\bibitem{Ayasso2010}
+		H. Ayasso, and A. Mohammad-Djafari, \newblock{Joint NDT image restoration and segmentation using Gauss-Markov-Potts prior models and variational Bayesian computation}, \newblock{\em IEEE Transactions on Image Processing}, {\bf 19}, 2265 (2010).
+		
+		\bibitem{Djafari2015}
+		A. Mohammad-Djafari, and M. Dumitru,  \newblock{Bayesian sparse solutions to linear inverse problems with non-stationary noise with Student-t priors},  \newblock{\em Digital Signal Processing} {\bf 47}, 128 (2015).
+		
+		\bibitem{Zhao2016}
+		N. Zhao, A. Basarab, D. Kouam\'{e}, and J. Y. Tourneret,  \newblock{Joint segmentation and deconvolution of ultrasound images using a hierarchical Bayesian model based on generalized Gaussian priors}, \newblock{\em IEEE transactions on Image Processing}, {\bf 25}, 3736 (2016).
+		
+		\bibitem{Bertsekas1999}
+		D.P. Bertsekas, \newblock{Nonlinear Programming}, \newblock{\em 2nd ed. Boston, MA: Athena}, (1999).
+		
+		\bibitem{Freulon2015}
+		V. Freulon, A. Marguerite, J.-M. Berroir, B. Pla\c{c}ais, A. Cavanna, Y. Jin, G. F\`{e}ve, Hong-Ou-Mandel experiment for temporal investigation of single-electron fractionalization, Nature communications {\bf 6}, 6854 (2015).
+		
+		\bibitem{Wahl2014}
+		C. Wahl, J. Rech, T. Jonckheere, T. Martin, Interactions and charge fractionalization in an electronic Hong-Ou-Mandel interferometer, Physical review letters {\bf 112}, 046802 (2014).
+		
+		
+	\end{thebibliography}
+	
+	
+	
+\end{document}

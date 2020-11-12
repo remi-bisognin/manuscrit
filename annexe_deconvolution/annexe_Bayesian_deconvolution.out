@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{The problem }{}% 1
+\BOOKMARK [1][-]{section.2}{The field}{}% 2
+\BOOKMARK [1][-]{section.3}{The Fourier space technique: Wiener filter}{}% 3
+\BOOKMARK [1][-]{section.4}{The Bayesian framework}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Posterior law maximization}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{Unsupervised technique with joint posterior law}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{Box-constraint problem with projected gradiant}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{outlook: toward a 2D treatment}{section.4}% 8

@@ -1,0 +1,29 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: mon_manuscrit.aux
+A level-1 auxiliary file: intro.aux
+A level-1 auxiliary file: chap2.aux
+A level-1 auxiliary file: chap1.aux
+A level-1 auxiliary file: chap3.aux
+A level-1 auxiliary file: appA.aux
+A level-1 auxiliary file: appB.aux
+The style file: ./bib/thesefr-href.bst
+Database file #1: ./bib/shortbib.bib
+Repeated entry---line 214 of file ./bib/shortbib.bib
+ : @phdthesis{Bocquillon2012electron
+ :                                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 492 of file ./bib/shortbib.bib
+ : @article{freulon2015hong
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 503 of file ./bib/shortbib.bib
+ : @article{gabelli2006violation
+ :                              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 1697 of file ./bib/shortbib.bib
+ : @article{von1986quantized
+ :                          ,
+I'm skipping whatever remains of this entry
+Warning--can't use both volume and number fields in carrega2014finite
+Warning--can't use both author and editor fields in wigner1997on
+Warning--empty journal in wiener1949extrapolation
+(There were 4 error messages)
